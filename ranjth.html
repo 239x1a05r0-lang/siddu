@@ -30,7 +30,7 @@
                 document.getElementById('result').innerHTML = '<p style="color: red;">Please enter a URL.</p>';
                 return;
             }
-            // Mock shortening: just prepend a fake domain and a random string
+    
             const shortCode = Math.random().toString(36).substring(2, 8);
             const shortUrl = `https://short.ly/${shortCode}`;
             document.getElementById('result').innerHTML = `
@@ -41,4 +41,5 @@
         }
     </script>
 </body>
+
 </html>
