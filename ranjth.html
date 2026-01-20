@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple URL Shortener Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        div { margin: 10px 0; }
+        input { padding: 5px; width: 300px; }
+        button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>URL Shortener Demo</h2>
+        <div>
+            <label for="longUrl">Enter a long URL:</label>
+            <input type="url" id="longUrl" placeholder="https://example.com/very/long/path">
+        </div>
+        <div>
+            <button onclick="shortenUrl()">Shorten URL</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function shortenUrl() {
+            const longUrl = document.getElementById('longUrl').value;
+            if (!longUrl) {
+                document.getElementById('result').innerHTML = '<p style="color: red;">Please enter a URL.</p>';
+                return;
+            }
+            // Mock shortening: just prepend a fake domain and a random string
+            const shortCode = Math.random().toString(36).substring(2, 8);
+            const shortUrl = `https://short.ly/${shortCode}`;
+            document.getElementById('result').innerHTML = `
+                <p>Original: <a href="${longUrl}" target="_blank">${longUrl}</a></p>
+                <p>Shortened: <a href="${shortUrl}" target="_blank">${shortUrl}</a></p>
+                <p><em>Note: This is a demo. Real shortening requires a backend.</em></p>
+            `;
+        }
+    </script>
+</body>
+</html>
